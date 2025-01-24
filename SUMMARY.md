@@ -1,10 +1,10 @@
 # Summary
 
 * [Introduction](README.md)
-* [FUN with Git](git.md)
-* [FUN with Python](python.md)
-* [FUN with Docker](docker.md)
-* [FUN with Slack](slack.md)
-* [Code reviews at FUN](code-reviews.md)
+* [La Suite numérique with Git](git.md)
+* [La Suite numérique with Python](python.md)
+* [La Suite numérique with Docker](docker.md)
+* [La Suite numérique with Tchap](tchap.md)
+* [Code reviews at La Suite numérique](code-reviews.md)
 * [Accessibility guide](accessibility.md)
 * [Security](security.md)

@@ -1,6 +1,6 @@
-# FUN with Docker
+# La Suite numérique with Docker
 
-We extensively use Docker at FUN. Mostly for developement, but also in production. In this document, you will find a few guidelines on how we write, run and manage our containers.
+We extensively use Docker at La Suite numérique. Mostly for developement, but also in production. In this document, you will find a few guidelines on how we write, run and manage our containers.
 
 ## Docker/host user mapping
 

@@ -78,7 +78,7 @@ The alternative indicates the meaning of the image, not its visual description.
 Examples:
 
 - a link with a facebook logo, made to share a page on facebook, will have "Share on Facebook" as an alternative, not "Blue Facebook logo".
-- the link in the header of the site with a FUN logo will have "Home - FUN" as a textual alternative, not "FUN logo".
+- the link in the header of the site with a La Suite numérique logo will have "Home - La Suite numérique" as a textual alternative, not "La Suite numérique logo".
 - a non-interactive area composed of "[logo representing a building] [name of establishment]" will have a textual alternative on the logo indicating "Establishment", not "Image of a two-story building". This is to give context to the screen reader user that the text coming next is indeed the name of an establishment.
 
 ### Technically, how to do this?

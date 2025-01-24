@@ -1,6 +1,6 @@
-# FUN with Git
+# La Suite numérique with Git
 
-[Git](https://git-scm.com) is used as a [DVCS](https://en.wikipedia.org/wiki/Distributed_version_control) for every FUN project involving code or documentation. In this chapter, you will find how we use Git on a daily-basis to code and collaborate with the team.
+[Git](https://git-scm.com) is used as a [DVCS](https://en.wikipedia.org/wiki/Distributed_version_control) for every La Suite numérique project involving code or documentation. In this chapter, you will find how we use Git on a daily-basis to code and collaborate with the team.
 
 If you are looking for a good introduction to Git, take a look at the [_Git In Practice_](https://github.com/GitInPractice/GitInPractice#readme) book from Mike McQuaid.
 
@@ -145,6 +145,16 @@ For the sake of simplicity, to ease interaction with the community, we use the [
 * tags from the master branch are considered as releases,
 * contributors have to fork or create a new feature-branch to work on \(if they are allowed to in the original repository\) and propose a pull request to merge their branch to `master`.
 
+### La Suite numérique private projects
+
+Historically, we use [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) for internal projects. You will find plenty of resources on the web about this workflow, so in a few words:
+
+* the `master` branch is considered as a stable and always deployable branch,
+* the `develop` branch is a working branch where developped features are merged,
+* contributors have to work on feature-branch that will target the `develop` branch,
+* hotfix and release branches are merged to `master` and back-ported to `develop`,
+* release branches create tags on the master branch when they are closed.
+
 ## Working with forges
 
 ### Declaring issues
@@ -169,7 +179,7 @@ Note that the target branch \(`develop` or `master`\) will be write-protected, _
 
 ## Releasing new software version
 
-Whatever the language you are using on a FUN project, cooking a new release \(_e.g._ `4.18.1`\) should follow a standard procedure described below:
+Whatever the language you are using on a La Suite numérique project, cooking a new release \(_e.g._ `4.18.1`\) should follow a standard procedure described below:
 
 1. Create a new branch named: `release/4.18.1`,
 
