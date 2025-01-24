@@ -145,21 +145,9 @@ For the sake of simplicity, to ease interaction with the community, we use the [
 * tags from the master branch are considered as releases,
 * contributors have to fork or create a new feature-branch to work on \(if they are allowed to in the original repository\) and propose a pull request to merge their branch to `master`.
 
-### FUN private projects
-
-Historically, we use [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) for internal projects. You will find plenty of resources on the web about this workflow, so in a few words:
-
-* the `master` branch is considered as a stable and always deployable branch,
-* the `develop` branch is a working branch where developped features are merged,
-* contributors have to work on feature-branch that will target the `develop` branch,
-* hotfix and release branches are merged to `master` and back-ported to `develop`,
-* release branches create tags on the master branch when they are closed.
-
 ## Working with forges
 
 ### Declaring issues
-
-_For now, new issues are declared in a dedicated Trello board. This is a temporary situation. In the following, we will describe how it should be_ 🤓
 
 When declaring a new issue, please describe as much as possible the **purpose** of your issue, and eventually make a **proposal** on how it should be solved or investigated. Choose wisely a label for this issue and please do not assign someone to it \(unless you already discussed with her verbally and had an agreement\).
 
