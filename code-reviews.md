@@ -1,4 +1,4 @@
-# Code reviews at FUN
+# Code reviews at La Suite numérique
 
 Code reviews are collaborative steps in the development of our projects.  The
 purpose of code reviews is twofold. They allow both to:

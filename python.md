@@ -1,4 +1,4 @@
-# FUN with Python
+# La Suite numérique with Python
 
 In this section, we will describe our best practices when dealing with Python code.
 

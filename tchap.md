@@ -1,14 +1,14 @@
-# FUN with Slack
+# La Suite numérique with Tchap
 
-In this section, we will describe our best practices when using Slack.
+In this section, we will describe our best practices when using Tchap.
 
 ## Asynchronicity
 
-Slack is used:
+Tchap is used:
 - for real-time discussion when two or more persons are actively connected at the same time,
 - to replace emails when sharing information or for asynchronous conversation.
 
-When you post a message to someone on Slack, you should not expect them to answer synchronously.
+When you post a message to someone on Tchap, you should not expect them to answer synchronously.
 
 In other words, consider your messages like emails:
 - communicate the whole point before pressing "Enter" and not just "hello are you here?" or
