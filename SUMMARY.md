@@ -8,3 +8,4 @@
 * [Code reviews at La Suite numérique](code-reviews.md)
 * [Accessibility guide](accessibility.md)
 * [Security](security.md)
+* [Observability](observability.md)
