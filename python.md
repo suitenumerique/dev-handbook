@@ -136,3 +136,82 @@ test_forms_contact.py
 test_models_user_send_welcome_email.py
 test_forms_fields_datetimerange.py
 ```
+
+## Tooling
+
+### Dependency management
+
+We recommend using [`uv`](https://docs.astral.sh/uv/) to manage Python project dependencies
+and virtual environments. New Python projects should use `uv`; existing projects should migrate
+from `pip`, `pip-tools`, or `poetry` when the migration cost is reasonable.
+
+The goal is to keep dependency management fast, reproducible, and easy to run in the same way
+locally, in CI, and in container builds.
+
+#### Project files
+
+Python projects using `uv` should commit the following files:
+
+* `pyproject.toml`, which declares project metadata, the supported Python version,
+  and direct dependencies,
+* `uv.lock`, which locks the full resolved dependency tree.
+
+The Python version should usually be declared in `pyproject.toml` with `requires-python`.
+This keeps `pyproject.toml` as the source of truth and lets CI read the version from the same file.
+Use a committed `.python-version` only when a project needs a separate exact interpreter pin.
+
+The `.venv/` directory should not be committed.
+
+#### Dependency workflow
+
+`uv.lock` is managed by `uv` and should not be edited manually.
+When a dependency changes, commit `pyproject.toml` and `uv.lock` together so local
+environments and CI use the same resolved versions.
+
+In CI and deployment scripts, use `uv sync --locked` to fail early when `uv.lock` is missing
+or out of date with `pyproject.toml`. Do not use `--frozen` for this fail-fast check:
+`--frozen` uses the existing lockfile as-is and skips the up-to-date check.
+
+Use the dependency groups and extras that match the job being run.
+For example, lint and test jobs usually install development dependencies or all extras, while
+production images install without development dependencies.
+
+#### Continuous integration
+
+When using GitHub Actions, install Python from the project metadata, then install `uv`, then
+sync with the lockfile check enabled. Prefer pinning actions to a commit SHA and adding a
+version comment, as in our application repositories:
+
+```yaml
+- name: Install Python
+  uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
+  with:
+    python-version-file: "src/backend/pyproject.toml"
+
+- name: Install uv
+  uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+
+- name: Install dependencies
+  run: uv sync --locked --all-extras
+
+- name: Run tests
+  run: uv run pytest
+```
+
+For jobs that do not need the project itself installed, use
+`uv sync --locked --no-install-project --dev` or the equivalent flags for the project's
+dependency layout.
+
+#### Container builds
+
+For production images, install dependencies without development dependencies and keep dependency
+installation cacheable when possible. A common Dockerfile pattern is to sync third-party
+dependencies first, then install the project in a later layer:
+
+```dockerfile
+RUN uv sync --locked --no-install-project --no-dev
+RUN uv sync --locked --no-dev
+```
+
+When BuildKit cache mounts are available, cache `/root/.cache/uv` to avoid downloading and
+resolving the same packages repeatedly.
